@@ -4,7 +4,7 @@ The project uses OpenCV's tools to find the largest contour on your photo. Basic
 So the program will find a document on your photo, suggest you a frame and save the cutted photo with your document like a document scanner does.
 
 Install OpenCV before using. Fore example for MacOS with homebrew `brew install opencv`.
-Give to the executable a path to tour photo like `./DocScanner ./photo.jpg`
+Give to the executable a path to your photo like `./DocScanner ./photo.jpg`
 
 ## Example
 
