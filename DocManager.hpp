@@ -7,6 +7,7 @@
 #include <vector>
 #include <algorithm>
 #include <ranges>
+#include <cmath>
 
 namespace dc {
 

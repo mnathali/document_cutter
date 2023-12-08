@@ -56,8 +56,14 @@ namespace dc {
     {
         const auto &img = this->get_image();
         cv::Mat warped_img;
-        float w =(float)(points[1].x - points[0].x + points[2].x - points[3].x) / 2;
-        float h = (float)(points[3].y - points[0].y + points[2].y - points[1].y) / 2;
+        float w = std::sqrt((points[1].x - points[0].x) * (points[1].x - points[0].x)
+                + (points[1].y - points[0].y) * (points[1].y - points[0].y)
+                + (points[2].x - points[3].x) * (points[2].x - points[3].x)
+                + (points[2].y - points[3].y) * (points[2].y - points[3].y)) / 2;
+        float h = std::sqrt((points[3].x - points[0].x) * (points[3].x - points[0].x)
+                + (points[3].y - points[0].y) * (points[3].y - points[0].y)
+                + (points[2].x - points[1].x) * (points[2].x - points[1].x)
+                + (points[2].y - points[1].y) * (points[2].y - points[1].y)) / 2;
         std::vector<cv::Point2f> pointA(points.begin(), points.end());
         std::vector<cv::Point2f> pointB = { {0.0f, 0.0f}, {w, 0.0f}, {w,h}, {0.0f, h} };
         cv::Mat matrix = cv::getPerspectiveTransform(pointA, pointB);
